@@ -110,7 +110,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 #landing #feature-wheel .slick-carousel > .slick-next {
-  right: -20px;
+  right: -15px;
 }
 #landing #feature-wheel .slick-carousel > .slick-prev::before,
 #landing #feature-wheel .slick-carousel > .slick-next::before {
