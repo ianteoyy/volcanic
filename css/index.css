@@ -274,6 +274,10 @@ footer .social-icons-container .social-icon:not(:last-child) {
     margin-right: unset;
     margin-bottom: 5px;
   }
+
+  #latest-insights .insight-bg::before, #latest-insights .insight-bg .insight-details {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

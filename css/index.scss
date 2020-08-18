@@ -136,7 +136,7 @@ $faded: #ebebeb;
 
             .bird-icon {
               filter: invert(30%) sepia(24%) saturate(4252%) hue-rotate(350deg)
-                brightness(95%) contrast(90%)
+                brightness(95%) contrast(90%);
             }
           }
           > .bird-icon {
@@ -326,6 +326,13 @@ footer {
         margin-right: unset;
         margin-bottom: 5px;
       }
+    }
+  }
+
+  #latest-insights .insight-bg {
+    &::before, .insight-details {
+      // show in mobile view because cannot hover
+      opacity: 1;
     }
   }
 }
