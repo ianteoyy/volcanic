@@ -1,6 +1,21 @@
 $orange: #e67c28;
 $faded: #ebebeb;
 
+.text-dark {
+  // override bootstrap dark
+  color: #4d4d4d !important;
+}
+
+.text-orange {
+  color: $orange;
+}
+
+.section-heading {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
 .mini-text {
   font-size: 12px;
   line-height: 1;
@@ -13,6 +28,17 @@ $faded: #ebebeb;
   &:hover {
     background-color: $faded;
     color: var(--dark);
+  }
+}
+
+.btn-orange-inverted {
+  background-color: $faded;
+  border: none;
+  color: var(--dark);
+
+  &:hover {
+    background-color: $orange;
+    color: $faded;
   }
 }
 
@@ -31,6 +57,21 @@ $faded: #ebebeb;
   &:hover::before {
     width: 100%;
     background-color: $orange;
+  }
+}
+
+.bg-orange {
+  background-color: $orange;
+  color: $faded;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.bg-orange-hover:hover {
+  background-color: $faded;
+  color: var(--dark);
+
+  .btn-orange-inverted {
+    background-color: $orange;
+    color: $faded;
   }
 }
 
@@ -54,16 +95,16 @@ $faded: #ebebeb;
   border-radius: 0;
   &::before {
     background-image: url(../assets/landing-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     content: "";
     height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: brightness(60%);
   }
   > #landing-container {
     z-index: 2;
@@ -75,6 +116,9 @@ $faded: #ebebeb;
     align-self: flex-end;
     background-color: rgba($color: #000000, $alpha: 0.5);
     .slick-carousel {
+      > .slick-next {
+        right: -20px;
+      }
       > .slick-prev::before,
       > .slick-next::before {
         font-size: 2rem;
@@ -85,9 +129,20 @@ $faded: #ebebeb;
         > .bird-icon-container {
           width: 5rem;
           height: 5rem;
+          transition: background-color 0.15s linear;
+          cursor: pointer;
+          &:hover {
+            background-color: $faded;
+
+            .bird-icon {
+              filter: invert(30%) sepia(24%) saturate(4252%) hue-rotate(350deg)
+                brightness(95%) contrast(90%)
+            }
+          }
           > .bird-icon {
             color: $faded;
             width: 2rem;
+            transition: filter 0.15s linear;
           }
         }
       }
@@ -95,15 +150,182 @@ $faded: #ebebeb;
   }
 }
 
+#latest-jobs {
+  .jobs-carousel {
+    .jobs-card {
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+      .job-title {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+#about-us {
+  &::before {
+    background-image: url(../assets/aboutus-bg.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%);
+  }
+
+  > .container {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    > .about-us-desc {
+      font-size: 18px;
+    }
+
+    .about-us-stats {
+      > .stat-heading {
+        font-size: 2.5rem;
+        line-height: 1;
+        font-weight: 600;
+      }
+      > p {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+#testimonials {
+  > .quoted-by {
+    img {
+      height: 4rem;
+      width: 4rem;
+    }
+    .quote-giver {
+      font-size: 20px;
+      line-height: 1;
+    }
+  }
+}
+
+#work-for-us {
+  > .work-for-us-image {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(../assets/workforus.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: "";
+      filter: grayscale(100%);
+    }
+  }
+}
+
+footer {
+  .separator {
+    background-color: rgba($faded, 0.3);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    flex-shrink: 1;
+    width: 1px;
+  }
+  .social-icons-container {
+    .social-icon {
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: #7b8294;
+      color: $faded;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.15s linear;
+
+      &:hover {
+        text-decoration: none;
+        background-color: $orange;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+#latest-insights {
+  .insight-bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--dark);
+    position: relative;
+    transition: opacity 0.15s linear;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: inherit;
+      background-image: linear-gradient(
+        to bottom,
+        rgba($orange, 0),
+        rgba($orange, 0.99)
+      );
+      opacity: 0;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    .insight-details {
+      opacity: 0;
+      transition: inherit;
+    }
+
+    &:hover > .insight-details {
+      opacity: 1;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .navbar {
-    //remove padding for hover effect to be on top
+    //remove padding for orange-line hover effect to be on top
     padding-top: 0;
     padding-bottom: 0;
     .nav-link {
       display: inline-flex;
       height: 6rem;
       align-items: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #latest-jobs .jobs-carousel {
+    .jobs-card {
+      &:not(:last-child) {
+        margin-right: unset;
+        margin-bottom: 5px;
+      }
     }
   }
 }
